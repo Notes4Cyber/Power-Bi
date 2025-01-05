@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power BI Knowledge Check</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .answers {
+      margin-top: 10px;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Power BI Knowledge Check</h1>
+
+  <div class="question">
+    <p><strong>1. What is the common flow of activity in Power BI?</strong></p>
+    <div>
+      <input type="radio" name="q1" id="q1-a" value="a">
+      <label for="q1-a">Create a report in the Power BI service, share it to Power BI mobile, and interact with it in Power BI Desktop.</label>
+    </div>
+    <div>
+      <input type="radio" name="q1" id="q1-b" value="b">
+      <label for="q1-b">Create a report in Power BI Desktop, share it to the Power BI service, and interact with reports in the service and Power BI Mobile.</label>
+    </div>
+    <div>
+      <input type="radio" name="q1" id="q1-c" value="c">
+      <label for="q1-c">Create a report in Power BI mobile, share it to Power BI Desktop, and interact with reports in the Power BI service.</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p><strong>2. Which of the following are building blocks of Power BI?</strong></p>
+    <div>
+      <input type="radio" name="q2" id="q2-a" value="a">
+      <label for="q2-a">Tiles and visualizations.</label>
+    </div>
+    <div>
+      <input type="radio" name="q2" id="q2-b" value="b">
+      <label for="q2-b">Semantic models and visualizations.</label>
+    </div>
+    <div>
+      <input type="radio" name="q2" id="q2-c" value="c">
+      <label for="q2-c">Semantic models and reports.</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p><strong>3. What is a collection of reports and dashboards called in Power BI?</strong></p>
+    <div>
+      <input type="radio" name="q3" id="q3-a" value="a">
+      <label for="q3-a">The canvas.</label>
+    </div>
+    <div>
+      <input type="radio" name="q3" id="q3-b" value="b">
+      <label for="q3-b">Scheduled refresh.</label>
+    </div>
+    <div>
+      <input type="radio" name="q3" id="q3-c" value="c">
+      <label for="q3-c">An app.</label>
+    </div>
+  </div>
+
+  <button onclick="checkAnswers()">Check Answers</button>
+
+  <div id="feedback" class="hidden">
+    <h2>Results:</h2>
+    <p id="q1-feedback"></p>
+    <p id="q2-feedback"></p>
+    <p id="q3-feedback"></p>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const feedback = document.getElementById('feedback');
+      feedback.classList.remove('hidden');
+
+      // Question 1
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      if (q1) {
+        document.getElementById('q1-feedback').textContent =
+          q1.value === 'b'
+            ? '1. Correct! The correct flow starts with Power BI Desktop.'
+            : '1. Incorrect. The correct answer is: Create a report in Power BI Desktop, share it to the Power BI service, and interact with reports in the service and Power BI Mobile.';
+        document.getElementById('q1-feedback').className = q1.value === 'b' ? 'correct' : 'incorrect';
+      } else {
+        document.getElementById('q1-feedback').textContent = '1. You did not select an answer.';
+      }
+
+      // Question 2
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      if (q2) {
+        document.getElementById('q2-feedback').textContent =
+          q2.value === 'b'
+            ? '2. Correct! Semantic models and visualizations are key building blocks.'
+            : '2. Incorrect. The correct answer is: Semantic models and visualizations.';
+        document.getElementById('q2-feedback').className = q2.value === 'b' ? 'correct' : 'incorrect';
+      } else {
+        document.getElementById('q2-feedback').textContent = '2. You did not select an answer.';
+      }
+
+      // Question 3
+      const q3 = document.querySelector('input[name="q3"]:checked');
+      if (q3) {
+        document.getElementById('q3-feedback').textContent =
+          q3.value === 'c'
+            ? '3. Correct! A collection of reports and dashboards is called an app.'
+            : '3. Incorrect. The correct answer is: An app.';
+        document.getElementById('q3-feedback').className = q3.value === 'c' ? 'correct' : 'incorrect';
+      } else {
+        document.getElementById('q3-feedback').textContent = '3. You did not select an answer.';
+      }
+    }
+  </script>
+</body>
+</html>
